@@ -1,0 +1,7 @@
+.login{
+    max-width: 350px;
+}
+
+.texto-cinza a, .texto-cinza h6{
+    color:rgb(115, 115, 115) !important;
+}
