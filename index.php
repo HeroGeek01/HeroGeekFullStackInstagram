@@ -12,6 +12,48 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
+    <?php
+    // echo var_dump($_POST);
+    if ($_POST) {
+        $email_post = $_POST["email"];
+        $senha_post = $_POST["senha"];
+
+        if (str_contains($email_post, "'") || str_contains($email_post, "'")) {
+            echo "<script>alert('Não digite " . "\
+            '" . " nos campos!');</script>";
+        } else {
+
+            $nomeservidor = "localhost";
+            $nomeusuario = "root";
+            $senha = "";
+            $bancodados = "HeroGeekInstagram";
+
+            $conexao = new mysqli($nomeservidor, $nomeusuario, $senha, $bancodados);
+            if ($conexao->connect_error) {
+                die("Conexão falhou: " . $conexao->connect_error);
+            }
+            $sql = "
+    select * from usuario where email='$email_post' AND senha='$senha_post'
+        ";
+            $resposta = $conexao->query($sql);
+            if ($resposta) {
+                while ($linha = $resposta->fetch_assoc()) {
+                    // echo var_dump ($linha);
+                    $nome = $linha['Nome'];
+                    $id = $linha['ID'];
+                    echo "<script>localStorage.setItem('UsuarioLogadoNome','$nome')</script>";
+                    echo "<script>localStorage.setItem('UsuarioLogadoID','$id')</script>";
+                    header('Location: ./home.php');
+                }
+            }
+
+
+            echo "<script>console.log('Conexão estabelecida');</script>";
+            $conexao->close();
+        }
+    }
+    ?>
+
 
 </head>
 
@@ -21,9 +63,11 @@
         <figure class="figure">
             <img src="./img/instagram.png" class="figure-img img-fluid">
         </figure>
-        <input class="mb-2 form-control" type="email" placeholder="email">
-        <input class="mb-2 form-control" type="password" placeholder="Senha">
-        <button class="my-3 container-fluid btn btn-primary">Entrar</button>
+        <form action="./index.php" method="POST">
+            <input class="mb-2 form-control" type="email" name="email" placeholder="email">
+            <input class="mb-2 form-control" type="password" name="senha" placeholder="Senha">
+            <button type="submit" class="my-3 container-fluid btn btn-primary">Entrar</button>
+        </form>
         <p>OU</p>
 
         <a href="">Esqueceu a senha?</a>
@@ -43,12 +87,15 @@
             <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Privacidade</a>
             <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Termos</a>
             <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Localizações</a>
-            <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Instagram Lite</a>
+            <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Instagram
+                Lite</a>
             <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Threads</a>
-            <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Upload de contatos e não usuários</a>
-            <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Meta Verified</a>
+            <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Upload de
+                contatos e não usuários</a>
+            <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="">Meta
+                Verified</a>
         </div>
-      
+
 
         <h6>2025 HeroGeek Carlos Eduardo</h6>
     </footer>
