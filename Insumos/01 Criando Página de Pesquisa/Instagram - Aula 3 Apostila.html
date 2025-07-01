@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Instagram - Aula 3 Apostila.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="apostila-passo-a-passo-instagram-clone---p%C3%A1gina-de-pesquisa">Apostila Passo a Passo: Instagram Clone - Página de Pesquisa</h1>
+<h2 id="passo-a-passo-do-c%C3%B3digo">Passo a Passo do Código</h2>
+<h3 id="1-doctype-html">1. <code>&lt;!DOCTYPE html&gt;</code></h3>
+<ul>
+<li>Define o tipo do documento como HTML5. Informa ao navegador que este é um documento HTML moderno.</li>
+</ul>
+<h3 id="2-html-lang%22pt-br%22">2. <code>&lt;html lang=&quot;pt-br&quot;&gt;</code></h3>
+<ul>
+<li>Inicia o elemento raiz do HTML.</li>
+<li>O atributo <code>lang=&quot;pt-br&quot;</code> indica que o conteúdo está em português do Brasil.</li>
+</ul>
+<h3 id="3-head">3. <code>&lt;head&gt;</code></h3>
+<ul>
+<li>Início da seção de cabeçalho do documento HTML. Aqui ficam as configurações, links e metadados.</li>
+</ul>
+<h3 id="4----meta-tags-obrigat%C3%B3rias-para-o-bootstrap-funcionar-corretamente">4. <code>    &lt;!-- Meta tags obrigatórias para o Bootstrap funcionar corretamente --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que as próximas linhas são meta tags necessárias para o Bootstrap.</li>
+</ul>
+<h3 id="5-meta-charset%22utf-8%22">5. <code>    &lt;meta charset=&quot;UTF-8&quot;&gt;</code></h3>
+<ul>
+<li>Define a codificação de caracteres como UTF-8, permitindo acentuação e caracteres especiais.</li>
+</ul>
+<h3 id="6-meta-name%22viewport%22-content%22widthdevice-width-initial-scale10%22">6. <code>    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></h3>
+<ul>
+<li>Define a viewport para responsividade, ajustando o layout para diferentes tamanhos de tela.</li>
+</ul>
+<h3 id="7----t%C3%ADtulo-da-p%C3%A1gina-que-aparece-na-aba-do-navegador">7. <code>    &lt;!-- Título da página que aparece na aba do navegador --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que a próxima linha define o título da aba do navegador.</li>
+</ul>
+<h3 id="8-titleinstagram-clone---p%C3%A1gina-de-pesquisatitle">8. <code>    &lt;title&gt;Instagram Clone - Página de Pesquisa&lt;/title&gt;</code></h3>
+<ul>
+<li>Define o texto que aparecerá na aba do navegador: &quot;Instagram Clone - Página de Pesquisa&quot;.</li>
+</ul>
+<h3 id="9----link-para-carregar-o-css-do-bootstrap-5-da-internet">9. <code>    &lt;!-- Link para carregar o CSS do Bootstrap 5 da internet --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que o próximo link importa o CSS do Bootstrap 5.</li>
+</ul>
+<h3 id="10----isso-traz-todos-os-estilos-prontos-que-vamos-usar">10. <code>    &lt;!-- Isso traz todos os estilos prontos que vamos usar --&gt;</code></h3>
+<ul>
+<li>Comentário reforçando que o link anterior traz estilos prontos do Bootstrap.</li>
+</ul>
+<h3 id="11-link-href%22httpscdnjsdelivrnetnpmbootstrap530distcssbootstrapmincss%22-rel%22stylesheet%22">11. <code>    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</code></h3>
+<ul>
+<li>Importa o arquivo CSS do Bootstrap 5.3.0 de um CDN, permitindo usar as classes do Bootstrap.</li>
+</ul>
+<h3 id="12----link-para-carregar-os-%C3%ADcones-do-bootstrap-icons">12. <code>    &lt;!-- Link para carregar os ícones do Bootstrap Icons --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo link importa os ícones do Bootstrap.</li>
+</ul>
+<h3 id="13----isso-nos-d%C3%A1-acesso-aos-%C3%ADcones-como-casa-lupa-etc">13. <code>    &lt;!-- Isso nos dá acesso aos ícones como casa, lupa, etc --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que o link anterior permite usar ícones como casa, lupa, etc.</li>
+</ul>
+<h3 id="14-link-href%22httpscdnjsdelivrnetnpmbootstrap-icons1100fontbootstrap-iconscss%22-rel%22stylesheet%22">14. <code>    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css&quot; rel=&quot;stylesheet&quot;&gt;</code></h3>
+<ul>
+<li>Importa o CSS dos ícones do Bootstrap Icons versão 1.10.0, permitindo usar ícones no HTML.</li>
+</ul>
+<h3 id="15-head">15. <code>&lt;/head&gt;</code></h3>
+<ul>
+<li>Fecha a seção de cabeçalho do documento HTML.</li>
+</ul>
+<h3 id="16">16. ``</h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="17-body">17. <code>&lt;body&gt;</code></h3>
+<ul>
+<li>Início do corpo do documento HTML, onde o conteúdo visível da página é colocado.</li>
+</ul>
+<h3 id="18----container-principal-que-ocupa-toda-a-tela">18. <code>    &lt;!-- Container principal que ocupa toda a tela --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que o próximo elemento é o container principal da página.</li>
+</ul>
+<h3 id="19----d-flex--display-flex-para-organizar-elementos-lado-a-lado">19. <code>    &lt;!-- d-flex = display flex (para organizar elementos lado a lado) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>d-flex</code> ativa o flexbox para organizar elementos horizontalmente.</li>
+</ul>
+<h3 id="20----vh-100--height-100-da-viewport-altura-total-da-tela">20. <code>    &lt;!-- vh-100 = height 100% da viewport (altura total da tela) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>vh-100</code> faz o container ocupar 100% da altura da tela.</li>
+</ul>
+<h3 id="21-div-class%22d-flex-vh-100%22">21. <code>    &lt;div class=&quot;d-flex vh-100&quot;&gt;</code></h3>
+<ul>
+<li>Cria um <code>div</code> com as classes <code>d-flex</code> (flexbox) e <code>vh-100</code> (altura total da tela), servindo como container principal.</li>
+</ul>
+<h3 id="22">22. <code>      </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="23----menu-lateral-principal-lado-esquerdo">23. <code>        &lt;!-- MENU LATERAL PRINCIPAL (lado esquerdo) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é o menu lateral principal, localizado à esquerda.</li>
+</ul>
+<h3 id="24----bg-white--fundo-branco">24. <code>        &lt;!-- bg-white = fundo branco --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>bg-white</code> define o fundo branco.</li>
+</ul>
+<h3 id="25----border-end--borda-%C3%A0-direita">25. <code>        &lt;!-- border-end = borda à direita --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>border-end</code> adiciona uma borda à direita do elemento.</li>
+</ul>
+<h3 id="26----p-3--padding-espa%C3%A7amento-interno-de-3-unidades">26. <code>        &lt;!-- p-3 = padding (espaçamento interno) de 3 unidades --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>p-3</code> adiciona espaçamento interno de 3 unidades.</li>
+</ul>
+<h3 id="27----flex-shrink-0--n%C3%A3o-permite-que-este-elemento-diminua">27. <code>        &lt;!-- flex-shrink-0 = não permite que este elemento diminua --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>flex-shrink-0</code> impede que o elemento diminua de tamanho no flexbox.</li>
+</ul>
+<h3 id="28-div-class%22bg-white-border-end-p-3-flex-shrink-0%22-style%22width-80px%22">28. <code>        &lt;div class=&quot;bg-white border-end p-3 flex-shrink-0&quot; style=&quot;width: 80px;&quot;&gt;</code></h3>
+<ul>
+<li>Cria um <code>div</code> para o menu lateral com fundo branco, borda à direita, padding de 3, não encolhe no flexbox e largura fixa de 80px.</li>
+</ul>
+<h3 id="29">29. <code>          </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="30----logo-do-instagram-no-topo">30. <code>            &lt;!-- Logo do Instagram no topo --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é a logo do Instagram no topo do menu.</li>
+</ul>
+<h3 id="31----text-center--centraliza-o-texto">31. <code>            &lt;!-- text-center = centraliza o texto --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>text-center</code> centraliza o conteúdo.</li>
+</ul>
+<h3 id="32----mb-4--margin-bottom-espa%C3%A7o-embaixo-de-4-unidades">32. <code>            &lt;!-- mb-4 = margin-bottom (espaço embaixo) de 4 unidades --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>mb-4</code> adiciona margem inferior de 4 unidades.</li>
+</ul>
+<h3 id="33-div-class%22text-center-mb-4%22">33. <code>            &lt;div class=&quot;text-center mb-4&quot;&gt;</code></h3>
+<ul>
+<li>Cria um <code>div</code> para a logo, centralizando o conteúdo e adicionando margem inferior.</li>
+</ul>
+<h3 id="34----%C3%ADcone-do-instagram-usando-bootstrap-icons">34. <code>                &lt;!-- Ícone do Instagram usando Bootstrap Icons --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo elemento é o ícone do Instagram.</li>
+</ul>
+<h3 id="35----fs-2--font-size-2-tamanho-grande">35. <code>                &lt;!-- fs-2 = font-size 2 (tamanho grande) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>fs-2</code> define o tamanho da fonte como grande.</li>
+</ul>
+<h3 id="36----text-dark--cor-do-texto-escura">36. <code>                &lt;!-- text-dark = cor do texto escura --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>text-dark</code> define a cor do texto como escura.</li>
+</ul>
+<h3 id="37-i-class%22bi-bi-instagram-fs-2-text-dark%22i">37. <code>                &lt;i class=&quot;bi bi-instagram fs-2 text-dark&quot;&gt;&lt;/i&gt;</code></h3>
+<ul>
+<li>Adiciona o ícone do Instagram usando as classes do Bootstrap Icons, tamanho grande e cor escura.</li>
+</ul>
+<h3 id="38-div">38. <code>            &lt;/div&gt;</code></h3>
+<ul>
+<li>Fecha o <code>div</code> da logo do Instagram.</li>
+</ul>
+<h3 id="39">39. <code>          </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="40----lista-de-%C3%ADcones-do-menu">40. <code>            &lt;!-- Lista de ícones do menu --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é a lista de ícones do menu lateral.</li>
+</ul>
+<h3 id="41----nav--elemento-de-navega%C3%A7%C3%A3o">41. <code>            &lt;!-- nav = elemento de navegação --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que o elemento <code>nav</code> é usado para navegação.</li>
+</ul>
+<h3 id="42----flex-column--organiza-os-itens-em-coluna-um-embaixo-do-outro">42. <code>            &lt;!-- flex-column = organiza os itens em coluna (um embaixo do outro) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>flex-column</code> organiza os itens verticalmente.</li>
+</ul>
+<h3 id="43-nav-class%22nav-flex-column%22">43. <code>            &lt;nav class=&quot;nav flex-column&quot;&gt;</code></h3>
+<ul>
+<li>Cria um elemento de navegação com as classes <code>nav</code> e <code>flex-column</code>, organizando os links em coluna.</li>
+</ul>
+<h3 id="44">44. <code>              </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="45----bot%C3%A3o-home-in%C3%ADcio">45. <code>                &lt;!-- Botão Home (Início) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é o botão Home (Início).</li>
+</ul>
+<h3 id="46----nav-link--estilo-padr%C3%A3o-para-links-de-navega%C3%A7%C3%A3o">46. <code>                &lt;!-- nav-link = estilo padrão para links de navegação --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>nav-link</code> aplica o estilo padrão de navegação.</li>
+</ul>
+<h3 id="47----text-dark--texto-escuro">47. <code>                &lt;!-- text-dark = texto escuro --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>text-dark</code> deixa o texto escuro.</li>
+</ul>
+<h3 id="48----p-2--padding-de-2-unidades">48. <code>                &lt;!-- p-2 = padding de 2 unidades --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>p-2</code> adiciona padding de 2 unidades.</li>
+</ul>
+<h3 id="49----mb-2--margin-bottom-de-2-unidades">49. <code>                &lt;!-- mb-2 = margin-bottom de 2 unidades --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>mb-2</code> adiciona margem inferior de 2 unidades.</li>
+</ul>
+<h3 id="50----text-center--centraliza-o-conte%C3%BAdo">50. <code>                &lt;!-- text-center = centraliza o conteúdo --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>text-center</code> centraliza o conteúdo.</li>
+</ul>
+<h3 id="51-a-href%22%22-class%22nav-link-text-dark-p-2-mb-2-text-center%22-aria-label%22in%C3%ADcio%22-title%22in%C3%ADcio%22">51. <code>                &lt;a href=&quot;#&quot; class=&quot;nav-link text-dark p-2 mb-2 text-center&quot; aria-label=&quot;Início&quot; title=&quot;Início&quot;&gt;</code></h3>
+<ul>
+<li>Cria um link de navegação para Home, com texto escuro, padding, margem inferior e centralização.</li>
+</ul>
+<h3 id="52----%C3%ADcone-de-casa">52. <code>                    &lt;!-- Ícone de casa --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo elemento é o ícone de casa.</li>
+</ul>
+<h3 id="53----fs-4--font-size-4-tamanho-m%C3%A9dio-grande">53. <code>                    &lt;!-- fs-4 = font-size 4 (tamanho médio-grande) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>fs-4</code> define o tamanho da fonte como médio-grande.</li>
+</ul>
+<h3 id="54-i-class%22bi-bi-house-fs-4%22i">54. <code>                    &lt;i class=&quot;bi bi-house fs-4&quot;&gt;&lt;/i&gt;</code></h3>
+<ul>
+<li>Adiciona o ícone de casa usando Bootstrap Icons, tamanho médio-grande.</li>
+</ul>
+<h3 id="55-a">55. <code>                &lt;/a&gt;</code></h3>
+<ul>
+<li>Fecha o link de navegação Home.</li>
+</ul>
+<h3 id="56">56. <code>              </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="57----bot%C3%A3o-search-pesquisa">57. <code>                &lt;!-- Botão Search (Pesquisa) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é o botão de pesquisa.</li>
+</ul>
+<h3 id="58----este-bot%C3%A3o-est%C3%A1-%22ativo%22-porque-estamos-na-p%C3%A1gina-de-pesquisa">58. <code>                &lt;!-- Este botão está &quot;ativo&quot; porque estamos na página de pesquisa --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que este botão está destacado, pois representa a página atual.</li>
+</ul>
+<h3 id="59----bg-light--fundo-claro-para-mostrar-que-est%C3%A1-selecionado">59. <code>                &lt;!-- bg-light = fundo claro para mostrar que está selecionado --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>bg-light</code> deixa o fundo claro, indicando seleção.</li>
+</ul>
+<h3 id="60----rounded--bordas-arredondadas">60. <code>                &lt;!-- rounded = bordas arredondadas --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>rounded</code> deixa as bordas arredondadas.</li>
+</ul>
+<h3 id="61-a-href%22%22-class%22nav-link-text-dark-p-2-mb-2-text-center-bg-light-rounded%22">61. <code>                &lt;a href=&quot;#&quot; class=&quot;nav-link text-dark p-2 mb-2 text-center bg-light rounded&quot;&gt;</code></h3>
+<ul>
+<li>Cria um link de navegação para pesquisa, com texto escuro, padding, margem inferior, centralização, fundo claro e bordas arredondadas.</li>
+</ul>
+<h3 id="62----%C3%ADcone-de-lupa-pesquisa">62. <code>                    &lt;!-- Ícone de lupa (pesquisa) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo elemento é o ícone de pesquisa (lupa).</li>
+</ul>
+<h3 id="63-i-class%22bi-bi-search-fs-4%22i">63. <code>                    &lt;i class=&quot;bi bi-search fs-4&quot;&gt;&lt;/i&gt;</code></h3>
+<ul>
+<li>Adiciona o ícone de pesquisa usando Bootstrap Icons, tamanho médio-grande.</li>
+</ul>
+<h3 id="64-a">64. <code>                &lt;/a&gt;</code></h3>
+<ul>
+<li>Fecha o link de navegação de pesquisa.</li>
+</ul>
+<h3 id="65">65. <code>              </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="66----bot%C3%A3o-explore-explorar">66. <code>                &lt;!-- Botão Explore (Explorar) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é o botão de explorar.</li>
+</ul>
+<h3 id="67-a-href%22%22-class%22nav-link-text-dark-p-2-mb-2-text-center%22">67. <code>                &lt;a href=&quot;#&quot; class=&quot;nav-link text-dark p-2 mb-2 text-center&quot;&gt;</code></h3>
+<ul>
+<li>Cria um link de navegação para explorar, com texto escuro, padding, margem inferior e centralização.</li>
+</ul>
+<h3 id="68----%C3%ADcone-de-cora%C3%A7%C3%A3o-curtidasexplorar">68. <code>                    &lt;!-- Ícone de coração (curtidas/explorar) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo elemento é o ícone de coração.</li>
+</ul>
+<h3 id="69-i-class%22bi-bi-heart-fs-4%22i">69. <code>                    &lt;i class=&quot;bi bi-heart fs-4&quot;&gt;&lt;/i&gt;</code></h3>
+<ul>
+<li>Adiciona o ícone de coração usando Bootstrap Icons, tamanho médio-grande.</li>
+</ul>
+<h3 id="70-a">70. <code>                &lt;/a&gt;</code></h3>
+<ul>
+<li>Fecha o link de navegação de explorar.</li>
+</ul>
+<h3 id="71">71. <code>              </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="72----bot%C3%A3o-messages-mensagens">72. <code>                &lt;!-- Botão Messages (Mensagens) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é o botão de mensagens.</li>
+</ul>
+<h3 id="73-a-href%22%22-class%22nav-link-text-dark-p-2-mb-2-text-center%22">73. <code>                &lt;a href=&quot;#&quot; class=&quot;nav-link text-dark p-2 mb-2 text-center&quot;&gt;</code></h3>
+<ul>
+<li>Cria um link de navegação para mensagens, com texto escuro, padding, margem inferior e centralização.</li>
+</ul>
+<h3 id="74----%C3%ADcone-de-chat-mensagens">74. <code>                    &lt;!-- Ícone de chat (mensagens) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo elemento é o ícone de chat.</li>
+</ul>
+<h3 id="75-i-class%22bi-bi-chat-fs-4%22i">75. <code>                    &lt;i class=&quot;bi bi-chat fs-4&quot;&gt;&lt;/i&gt;</code></h3>
+<ul>
+<li>Adiciona o ícone de chat usando Bootstrap Icons, tamanho médio-grande.</li>
+</ul>
+<h3 id="76-a">76. <code>                &lt;/a&gt;</code></h3>
+<ul>
+<li>Fecha o link de navegação de mensagens.</li>
+</ul>
+<h3 id="77-nav">77. <code>            &lt;/nav&gt;</code></h3>
+<ul>
+<li>Fecha o elemento de navegação do menu lateral.</li>
+</ul>
+<h3 id="78-div">78. <code>        &lt;/div&gt;</code></h3>
+<ul>
+<li>Fecha o <code>div</code> do menu lateral principal.</li>
+</ul>
+<h3 id="79">79. <code>      </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="80----painel-de-pesquisa-meio-esquerdo">80. <code>        &lt;!-- PAINEL DE PESQUISA (meio-esquerdo) --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é o painel de pesquisa, localizado no meio à esquerda.</li>
+</ul>
+<h3 id="81----este-painel-aparece-quando-clicamos-no-%C3%ADcone-de-pesquisa">81. <code>        &lt;!-- Este painel aparece quando clicamos no ícone de pesquisa --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que este painel é exibido ao clicar no ícone de pesquisa.</li>
+</ul>
+<h3 id="82----bg-white--fundo-branco">82. <code>        &lt;!-- bg-white = fundo branco --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>bg-white</code> define o fundo branco.</li>
+</ul>
+<h3 id="83----border-end--borda-%C3%A0-direita">83. <code>        &lt;!-- border-end = borda à direita --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>border-end</code> adiciona uma borda à direita.</li>
+</ul>
+<h3 id="84----p-3--padding-de-3-unidades">84. <code>        &lt;!-- p-3 = padding de 3 unidades --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>p-3</code> adiciona padding de 3 unidades.</li>
+</ul>
+<h3 id="85----flex-shrink-0--n%C3%A3o-permite-que-diminua-de-tamanho">85. <code>        &lt;!-- flex-shrink-0 = não permite que diminua de tamanho --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>flex-shrink-0</code> impede que o elemento diminua de tamanho no flexbox.</li>
+</ul>
+<h3 id="86-div-class%22bg-white-border-end-p-3-flex-shrink-0%22-style%22width-350px%22">86. <code>        &lt;div class=&quot;bg-white border-end p-3 flex-shrink-0&quot; style=&quot;width: 350px;&quot;&gt;</code></h3>
+<ul>
+<li>Cria um <code>div</code> para o painel de pesquisa, com fundo branco, borda à direita, padding de 3, não encolhe no flexbox e largura fixa de 350px.</li>
+</ul>
+<h3 id="87">87. <code>          </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="88----t%C3%ADtulo-do-painel-de-pesquisa">88. <code>            &lt;!-- Título do painel de pesquisa --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo elemento é o título do painel de pesquisa.</li>
+</ul>
+<h3 id="89----h4--heading-4-t%C3%ADtulo-de-tamanho-m%C3%A9dio">89. <code>            &lt;!-- h4 = heading 4 (título de tamanho médio) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a tag <code>h4</code> é um título de nível 4, tamanho médio.</li>
+</ul>
+<h3 id="90----fw-bold--font-weight-bold-texto-em-negrito">90. <code>            &lt;!-- fw-bold = font-weight bold (texto em negrito) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>fw-bold</code> deixa o texto em negrito.</li>
+</ul>
+<h3 id="91----mb-3--margin-bottom-de-3-unidades">91. <code>            &lt;!-- mb-3 = margin-bottom de 3 unidades --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>mb-3</code> adiciona margem inferior de 3 unidades.</li>
+</ul>
+<h3 id="92-h4-class%22fw-bold-mb-3%22pesquisah4">92. <code>            &lt;h4 class=&quot;fw-bold mb-3&quot;&gt;Pesquisa&lt;/h4&gt;</code></h3>
+<ul>
+<li>Cria um título &quot;Pesquisa&quot; com negrito e margem inferior.</li>
+</ul>
+<h3 id="93">93. <code>          </code></h3>
+<ul>
+<li>Linha em branco para organização visual do código.</li>
+</ul>
+<h3 id="94----campo-de-entrada-para-digitar-a-pesquisa">94. <code>            &lt;!-- Campo de entrada para digitar a pesquisa --&gt;</code></h3>
+<ul>
+<li>Comentário indicando que o próximo bloco é o campo de entrada para pesquisa.</li>
+</ul>
+<h3 id="95----mb-3--margin-bottom-de-3-unidades">95. <code>            &lt;!-- mb-3 = margin-bottom de 3 unidades --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>mb-3</code> adiciona margem inferior de 3 unidades.</li>
+</ul>
+<h3 id="96-div-class%22mb-3%22">96. <code>            &lt;div class=&quot;mb-3&quot;&gt;</code></h3>
+<ul>
+<li>Cria um <code>div</code> com margem inferior de 3 unidades para o campo de pesquisa.</li>
+</ul>
+<h3 id="97----input-group--agrupa-o-campo-de-entrada-com-outros-elementos">97. <code>                &lt;!-- input-group = agrupa o campo de entrada com outros elementos --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>input-group</code> agrupa o campo de entrada com outros elementos.</li>
+</ul>
+<h3 id="98-div-class%22input-group%22">98. <code>                &lt;div class=&quot;input-group&quot;&gt;</code></h3>
+<ul>
+<li>Cria um <code>div</code> com a classe <code>input-group</code> para agrupar o campo de entrada.</li>
+</ul>
+<h3 id="99----form-control--estilo-padr%C3%A3o-para-campos-de-entrada">99. <code>                    &lt;!-- form-control = estilo padrão para campos de entrada --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>form-control</code> aplica o estilo padrão de campos de entrada.</li>
+</ul>
+<h3 id="100----bg-light--fundo-claro">100. <code>                    &lt;!-- bg-light = fundo claro --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>bg-light</code> deixa o fundo do campo claro.</li>
+</ul>
+<h3 id="101----border-0--sem-borda">101. <code>                    &lt;!-- border-0 = sem borda --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que a classe <code>border-0</code> remove a borda do campo.</li>
+</ul>
+<h3 id="102----value%22paula%22--texto-que-j%C3%A1-aparece-no-campo-como-na-imagem">102. <code>                    &lt;!-- value=\&quot;paula\&quot; = texto que já aparece no campo (como na imagem) --&gt;</code></h3>
+<ul>
+<li>Comentário explicando que o atributo <code>value=&quot;paula&quot;</code> faz o campo já aparecer preenchido com &quot;paula&quot;.</li>
+</ul>
+<h3 id="103-input-type%22text%22-class%22form-control-bg-light-border-0%22-placeholder%22pesquisar%22-value%22paula%22">103. <code>                    &lt;input type=&quot;text&quot; class=&quot;form-control bg-light border-0&quot; placeholder=&quot;Pesquisar&quot; value=&quot;paula&quot;&gt;</code></h3>
+<ul>
+<li>Cria um campo de texto para pesquisa, com fundo claro, sem borda, preenchido com &quot;paula&quot; e placeholder &quot;Pesquisar&quot;.</li>
+</ul>
+<h3 id="104-div">104. <code>                &lt;/div&gt;</code></h3>
+<ul>
+<li>Fecha o <code>div</code> do grupo de entrada.</li>
+</ul>
+<h3 id="105-div">105. <code>            &lt;/div&gt;</code></h3>
+<ul>
+<li>Fecha o <code>div</code> do campo de pesquisa.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-br"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Meta tags obrigatórias para o Bootstrap funcionar corretamente --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    
+    <span class="hljs-comment">&lt;!-- Título da página que aparece na aba do navegador --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Instagram Clone - Página de Pesquisa<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    
+    <span class="hljs-comment">&lt;!-- Link para carregar o CSS do Bootstrap 5 da internet --&gt;</span>
+    <span class="hljs-comment">&lt;!-- Isso traz todos os estilos prontos que vamos usar --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+    
+    <span class="hljs-comment">&lt;!-- Link para carregar os ícones do Bootstrap Icons --&gt;</span>
+    <span class="hljs-comment">&lt;!-- Isso nos dá acesso aos ícones como casa, lupa, etc --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Container principal que ocupa toda a tela --&gt;</span>
+    <span class="hljs-comment">&lt;!-- d-flex = display flex (para organizar elementos lado a lado) --&gt;</span>
+    <span class="hljs-comment">&lt;!-- vh-100 = height 100% da viewport (altura total da tela) --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d-flex vh-100"</span>&gt;</span>
+        
+        <span class="hljs-comment">&lt;!-- MENU LATERAL PRINCIPAL (lado esquerdo) --&gt;</span>
+        <span class="hljs-comment">&lt;!-- bg-white = fundo branco --&gt;</span>
+        <span class="hljs-comment">&lt;!-- border-end = borda à direita --&gt;</span>
+        <span class="hljs-comment">&lt;!-- p-3 = padding (espaçamento interno) de 3 unidades --&gt;</span>
+        <span class="hljs-comment">&lt;!-- flex-shrink-0 = não permite que este elemento diminua --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bg-white border-end p-3 flex-shrink-0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 80px;"</span>&gt;</span>
+            
+            <span class="hljs-comment">&lt;!-- Logo do Instagram no topo --&gt;</span>
+            <span class="hljs-comment">&lt;!-- text-center = centraliza o texto --&gt;</span>
+            <span class="hljs-comment">&lt;!-- mb-4 = margin-bottom (espaço embaixo) de 4 unidades --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-center mb-4"</span>&gt;</span>
+                <span class="hljs-comment">&lt;!-- Ícone do Instagram usando Bootstrap Icons --&gt;</span>
+                <span class="hljs-comment">&lt;!-- fs-2 = font-size 2 (tamanho grande) --&gt;</span>
+                <span class="hljs-comment">&lt;!-- text-dark = cor do texto escura --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-instagram fs-2 text-dark"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            
+            <span class="hljs-comment">&lt;!-- Lista de ícones do menu --&gt;</span>
+            <span class="hljs-comment">&lt;!-- nav = elemento de navegação --&gt;</span>
+            <span class="hljs-comment">&lt;!-- flex-column = organiza os itens em coluna (um embaixo do outro) --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav flex-column"</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Botão Home (Início) --&gt;</span>
+                <span class="hljs-comment">&lt;!-- nav-link = estilo padrão para links de navegação --&gt;</span>
+                <span class="hljs-comment">&lt;!-- text-dark = texto escuro --&gt;</span>
+                <span class="hljs-comment">&lt;!-- p-2 = padding de 2 unidades --&gt;</span>
+                <span class="hljs-comment">&lt;!-- mb-2 = margin-bottom de 2 unidades --&gt;</span>
+                <span class="hljs-comment">&lt;!-- text-center = centraliza o conteúdo --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav-link text-dark p-2 mb-2 text-center"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Início"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Início"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- Ícone de casa --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- fs-4 = font-size 4 (tamanho médio-grande) --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-house fs-4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Botão Search (Pesquisa) --&gt;</span>
+                <span class="hljs-comment">&lt;!-- Este botão está "ativo" porque estamos na página de pesquisa --&gt;</span>
+                <span class="hljs-comment">&lt;!-- bg-light = fundo claro para mostrar que está selecionado --&gt;</span>
+                <span class="hljs-comment">&lt;!-- rounded = bordas arredondadas --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav-link text-dark p-2 mb-2 text-center bg-light rounded"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- Ícone de lupa (pesquisa) --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-search fs-4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Botão Explore (Explorar) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav-link text-dark p-2 mb-2 text-center"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- Ícone de coração (curtidas/explorar) --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-heart fs-4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Botão Messages (Mensagens) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav-link text-dark p-2 mb-2 text-center"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- Ícone de chat (mensagens) --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-chat fs-4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                
+            <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        
+        <span class="hljs-comment">&lt;!-- PAINEL DE PESQUISA (meio-esquerdo) --&gt;</span>
+        <span class="hljs-comment">&lt;!-- Este painel aparece quando clicamos no ícone de pesquisa --&gt;</span>
+        <span class="hljs-comment">&lt;!-- bg-white = fundo branco --&gt;</span>
+        <span class="hljs-comment">&lt;!-- border-end = borda à direita --&gt;</span>
+        <span class="hljs-comment">&lt;!-- p-3 = padding de 3 unidades --&gt;</span>
+        <span class="hljs-comment">&lt;!-- flex-shrink-0 = não permite que diminua de tamanho --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bg-white border-end p-3 flex-shrink-0"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 350px;"</span>&gt;</span>
+            
+            <span class="hljs-comment">&lt;!-- Título do painel de pesquisa --&gt;</span>
+            <span class="hljs-comment">&lt;!-- h4 = heading 4 (título de tamanho médio) --&gt;</span>
+            <span class="hljs-comment">&lt;!-- fw-bold = font-weight bold (texto em negrito) --&gt;</span>
+            <span class="hljs-comment">&lt;!-- mb-3 = margin-bottom de 3 unidades --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fw-bold mb-3"</span>&gt;</span>Pesquisa<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+            
+            <span class="hljs-comment">&lt;!-- Campo de entrada para digitar a pesquisa --&gt;</span>
+            <span class="hljs-comment">&lt;!-- mb-3 = margin-bottom de 3 unidades --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-3"</span>&gt;</span>
+                <span class="hljs-comment">&lt;!-- input-group = agrupa o campo de entrada com outros elementos --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- form-control = estilo padrão para campos de entrada --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- bg-light = fundo claro --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- border-0 = sem borda --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- value="paula" = texto que já aparece no campo (como na imagem) --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control bg-light border-0"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Pesquisar"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"paula"</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            
+            <span class="hljs-comment">&lt;!-- Lista de resultados da pesquisa --&gt;</span>
+            <span class="hljs-comment">&lt;!-- Cada resultado é um usuário que corresponde à pesquisa "paula" --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Primeiro resultado: paula.daniela1992 --&gt;</span>
+                <span class="hljs-comment">&lt;!-- d-flex = display flex (organiza elementos lado a lado) --&gt;</span>
+                <span class="hljs-comment">&lt;!-- align-items-center = alinha verticalmente ao centro --&gt;</span>
+                <span class="hljs-comment">&lt;!-- p-2 = padding de 2 unidades --&gt;</span>
+                <span class="hljs-comment">&lt;!-- mb-2 = margin-bottom de 2 unidades --&gt;</span>
+                <span class="hljs-comment">&lt;!-- rounded = bordas arredondadas --&gt;</span>
+                <span class="hljs-comment">&lt;!-- Este div funciona como um botão clicável --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d-flex align-items-center p-2 mb-2 rounded hover-effect"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"cursor: pointer;"</span>&gt;</span>
+                    
+                    <span class="hljs-comment">&lt;!-- Avatar (foto do perfil) --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- me-3 = margin-end (margem à direita) de 3 unidades --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- flex-shrink-0 = não permite que a imagem diminua --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"me-3 flex-shrink-0"</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- rounded-circle = faz a imagem ficar redonda --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Usando uma imagem placeholder do site picsum.photos --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/seed/paula1/40/40"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Avatar de paula.daniela1992"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded-circle"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"40"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"40"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    
+                    <span class="hljs-comment">&lt;!-- Informações do usuário (nome e username) --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Nome de usuário em negrito --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- fw-bold = font-weight bold --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- mb-0 = margin-bottom 0 (sem espaço embaixo) --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fw-bold mb-0"</span>&gt;</span>paula.daniela1992<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Nome real em cor mais clara --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- text-muted = cor do texto mais clara/cinza --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- small = texto menor --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-muted small"</span>&gt;</span>Paula Daniela • Seguindo(a) por jaopaulo1440...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Segundo resultado: paulaarquitetta --&gt;</span>
+                <span class="hljs-comment">&lt;!-- Mesma estrutura do resultado anterior --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d-flex align-items-center p-2 mb-2 rounded hover-effect"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"cursor: pointer;"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"me-3 flex-shrink-0"</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Usando seed diferente para gerar avatar diferente --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/seed/paula2/40/40"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Avatar de paulaarquitetta"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded-circle"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"40"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"40"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fw-bold mb-0"</span>&gt;</span>paulaarquitetta<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-muted small"</span>&gt;</span>Paula Gonçalves | Arquiteta • Seguindo(a) por j...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Terceiro resultado: _mariapaulaaps --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d-flex align-items-center p-2 mb-2 rounded hover-effect"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"cursor: pointer;"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"me-3 flex-shrink-0"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/seed/paula3/40/40"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Avatar de _mariapaulaaps"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded-circle"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"40"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"40"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fw-bold mb-0"</span>&gt;</span>_mariapaulaaps<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-muted small"</span>&gt;</span>Maria Paula • Seguindo(a) por jgcamposj e m...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Quarto resultado: mariasouto14_ --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d-flex align-items-center p-2 mb-2 rounded hover-effect"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"cursor: pointer;"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"me-3 flex-shrink-0"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/seed/paula4/40/40"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Avatar de mariasouto14_"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded-circle"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"40"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"40"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fw-bold mb-0"</span>&gt;</span>mariasouto14_<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-muted small"</span>&gt;</span>Maria Paula Souto<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                
+                <span class="hljs-comment">&lt;!-- Quinto resultado: paulasilva3884 --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"d-flex align-items-center p-2 mb-2 rounded hover-effect"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"cursor: pointer;"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"me-3 flex-shrink-0"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://picsum.photos/seed/paula5/40/40"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Avatar de paulasilva3884"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rounded-circle"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"40"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"40"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fw-bold mb-0"</span>&gt;</span>paulasilva3884<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-muted small"</span>&gt;</span>Paulinha Lima • Seguindo(a) por jaopaulo1440...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        
+        <span class="hljs-comment">&lt;!-- ÁREA PRINCIPAL DE CONTEÚDO (lado direito) --&gt;</span>
+        <span class="hljs-comment">&lt;!-- Esta área normalmente mostraria o perfil selecionado ou o feed --&gt;</span>
+        <span class="hljs-comment">&lt;!-- Na imagem está vazia porque o usuário está apenas pesquisando --&gt;</span>
+        <span class="hljs-comment">&lt;!-- flex-grow-1 = ocupa todo o espaço restante --&gt;</span>
+        <span class="hljs-comment">&lt;!-- bg-white = fundo branco --&gt;</span>
+        <span class="hljs-comment">&lt;!-- d-flex = display flex --&gt;</span>
+        <span class="hljs-comment">&lt;!-- align-items-center = alinha verticalmente ao centro --&gt;</span>
+        <span class="hljs-comment">&lt;!-- justify-content-center = alinha horizontalmente ao centro --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex-grow-1 bg-white d-flex align-items-center justify-content-center"</span>&gt;</span>
+            
+            <span class="hljs-comment">&lt;!-- Mensagem explicativa (esta parte não aparece na imagem original) --&gt;</span>
+            <span class="hljs-comment">&lt;!-- text-center = centraliza o texto --&gt;</span>
+            <span class="hljs-comment">&lt;!-- text-muted = cor do texto mais clara --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-center text-muted"</span>&gt;</span>
+                <span class="hljs-comment">&lt;!-- Ícone grande de pesquisa --&gt;</span>
+                <span class="hljs-comment">&lt;!-- display-1 = tamanho muito grande --&gt;</span>
+                <span class="hljs-comment">&lt;!-- mb-3 = margin-bottom de 3 unidades --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-search display-1 mb-3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                <span class="hljs-comment">&lt;!-- Texto explicativo --&gt;</span>
+                <span class="hljs-comment">&lt;!-- h5 = heading 5 (título pequeno) --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>Selecione um resultado da pesquisa<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+                <span class="hljs-comment">&lt;!-- Texto menor com mais detalhes --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Clique em um dos usuários encontrados para ver o perfil<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Script do Bootstrap (JavaScript) --&gt;</span>
+    <span class="hljs-comment">&lt;!-- Este script adiciona funcionalidades interativas aos componentes do Bootstrap --&gt;</span>
+    <span class="hljs-comment">&lt;!-- Colocamos no final do body para a página carregar mais rápido --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    
+    <span class="hljs-comment">&lt;!-- 
+    EXPLICAÇÃO GERAL DA ESTRUTURA:
+    
+    1. CONTAINER PRINCIPAL (d-flex vh-100):
+       - Usa flexbox para organizar os elementos lado a lado
+       - Ocupa 100% da altura da tela
+    
+    2. MENU LATERAL (80px de largura):
+       - Contém os ícones principais (home, pesquisa, etc.)
+       - Fica fixo no lado esquerdo
+       - O ícone de pesquisa está destacado (fundo claro)
+    
+    3. PAINEL DE PESQUISA (350px de largura):
+       - Mostra o campo de busca e os resultados
+       - Lista os usuários encontrados com avatar e informações
+       - Cada resultado é clicável (cursor: pointer)
+    
+    4. ÁREA PRINCIPAL (ocupa o resto da tela):
+       - Normalmente mostraria o feed ou perfil selecionado
+       - Está vazia como na imagem original
+       - Contém apenas uma mensagem explicativa
+    
+    CLASSES BOOTSTRAP MAIS USADAS:
+    
+    - d-flex: transforma o elemento em flex container
+    - flex-column: organiza filhos em coluna (vertical)
+    - align-items-center: alinha verticalmente ao centro
+    - justify-content-center: alinha horizontalmente ao centro
+    - mb-X: margin-bottom (espaço embaixo)
+    - me-X: margin-end (espaço à direita)
+    - p-X: padding (espaçamento interno)
+    - bg-white: fundo branco
+    - bg-light: fundo claro
+    - text-center: centraliza texto
+    - text-muted: texto em cor clara
+    - fw-bold: texto em negrito
+    - rounded: bordas arredondadas
+    - border-end: borda à direita
+    
+    O número X nas classes (como mb-3, p-2) representa o tamanho:
+    - 0 = sem espaço
+    - 1 = pequeno
+    - 2 = médio-pequeno  
+    - 3 = médio
+    - 4 = médio-grande
+    - 5 = grande
+    --&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>/* Exemplo de CSS para hover */
+.hover-effect:hover {
+background-color: #f8f9fa;
+}</p>
+
+</body>
+</html>

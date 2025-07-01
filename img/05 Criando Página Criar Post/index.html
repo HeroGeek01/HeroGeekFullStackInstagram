@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Meta tags obrigatórias para o Bootstrap -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link do CSS do Bootstrap - Framework para estilização -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link dos ícones do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Instagram Clone - Aprendendo Bootstrap</title>
+</head>
+<body>
+    <!-- Container principal que centraliza todo o conteúdo -->
+    <div class="container-fluid">
+        
+        <!-- CABEÇALHO/HEADER DA PÁGINA -->
+        <!-- Navbar é a barra de navegação do Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+            <!-- Container para organizar o conteúdo da navbar -->
+            <div class="container">
+                
+                <!-- Logo/Marca do site -->
+                <!-- navbar-brand é a classe para o logo -->
+                <a class="navbar-brand fw-bold fs-3" href="#">
+                    <!-- Ícone de câmera do Bootstrap Icons -->
+                    <i class="bi bi-camera"></i>
+                    Instagram Clone
+                </a>
+                
+                <!-- Botão para menu responsivo em telas pequenas -->
+                <!-- d-lg-none significa "display none" em telas grandes -->
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <!-- Ícone de 3 linhas para o menu hamburguer -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menu de navegação -->
+                <!-- collapse navbar-collapse significa que vai colapsar em telas pequenas -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    
+                    <!-- Lista de navegação centralizada -->
+                    <!-- mx-auto centraliza horizontalmente -->
+                    <ul class="navbar-nav mx-auto">
+                        <!-- Item de navegação - Campo de busca -->
+                        <li class="nav-item">
+                            <!-- Formulário de busca -->
+                            <form class="d-flex">
+                                <!-- Campo de entrada para busca -->
+                                <!-- form-control é a classe padrão do Bootstrap para inputs -->
+                                <input class="form-control me-2" type="search" placeholder="Pesquisar..." style="width: 300px;">
+                                <!-- Botão de busca -->
+                                <!-- btn btn-outline-secondary são classes do Bootstrap para botões -->
+                                <button class="btn btn-outline-secondary" type="submit">
+                                    <!-- Ícone de lupa -->
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                    
+                    <!-- Menu do lado direito -->
+                    <!-- ms-auto alinha à direita -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Item - Botão de criar post -->
+                        <li class="nav-item">
+                            <!-- Botão que abre o popup de criar post -->
+                            <!-- data-bs-toggle e data-bs-target são atributos do Bootstrap para abrir modals -->
+                            <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#criarPostModal">
+                                <!-- Ícone de mais -->
+                                <i class="bi bi-plus-circle"></i>
+                                Criar Post
+                            </button>
+                        </li>
+                        
+                        <!-- Item - Perfil do usuário -->
+                        <li class="nav-item">
+                            <!-- Link para o perfil -->
+                            <a class="nav-link" href="#">
+                                <!-- Ícone de pessoa -->
+                                <i class="bi bi-person-circle fs-4"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- CONTEÚDO PRINCIPAL DA PÁGINA -->
+        <!-- Container para centralizar o conteúdo -->
+        <div class="container mt-4">
+            <!-- Row para organizar em colunas -->
+            <div class="row justify-content-center">
+                
+                <!-- Coluna principal onde ficam os posts -->
+                <!-- col-md-8 significa que ocupará 8 colunas de 12 em telas médias -->
+                <div class="col-md-8">
+                    
+                    <!-- POST 1 - Primeiro exemplo de post -->
+                    <!-- Card é um componente do Bootstrap para criar caixas -->
+                    <div class="card mb-4">
+                        
+                        <!-- Cabeçalho do post -->
+                        <!-- card-header é a classe para o topo do card -->
+                        <div class="card-header bg-white">
+                            <!-- Flexbox para alinhar itens -->
+                            <!-- d-flex alinha em linha, align-items-center centraliza verticalmente -->
+                            <div class="d-flex align-items-center">
+                                <!-- Foto do perfil do usuário -->
+                                <!-- rounded-circle torna a imagem redonda -->
+                                <img src="https://via.placeholder.com/40" alt="Perfil" class="rounded-circle me-3">
+                                
+                                <!-- Informações do usuário -->
+                                <div>
+                                    <!-- Nome do usuário -->
+                                    <!-- fw-bold deixa o texto em negrito -->
+                                    <div class="fw-bold">usuario_exemplo</div>
+                                    <!-- Localização -->
+                                    <!-- text-muted deixa o texto em cinza claro -->
+                                    <div class="text-muted small">São Paulo, Brasil</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Imagem do post -->
+                        <!-- img-fluid torna a imagem responsiva -->
+                        <img src="https://via.placeholder.com/600x400" alt="Post" class="card-img-top">
+                        
+                        <!-- Corpo do post -->
+                        <!-- card-body é o conteúdo principal do card -->
+                        <div class="card-body">
+                            
+                            <!-- Botões de ação (curtir, comentar, compartilhar) -->
+                            <!-- mb-3 adiciona margem na parte inferior -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <!-- Botões do lado esquerdo -->
+                                <div>
+                                    <!-- Botão de curtir -->
+                                    <!-- btn-link remove o estilo padrão do botão -->
+                                    <button class="btn btn-link text-dark p-0 me-3">
+                                        <!-- Ícone de coração -->
+                                        <i class="bi bi-heart fs-5"></i>
+                                    </button>
+                                    
+                                    <!-- Botão de comentar -->
+                                    <button class="btn btn-link text-dark p-0 me-3">
+                                        <!-- Ícone de balão de fala -->
+                                        <i class="bi bi-chat fs-5"></i>
+                                    </button>
+                                    
+                                    <!-- Botão de compartilhar -->
+                                    <button class="btn btn-link text-dark p-0">
+                                        <!-- Ícone de compartilhar -->
+                                        <i class="bi bi-share fs-5"></i>
+                                    </button>
+                                </div>
+                                
+                                <!-- Botão de salvar (lado direito) -->
+                                <button class="btn btn-link text-dark p-0">
+                                    <!-- Ícone de bookmark -->
+                                    <i class="bi bi-bookmark fs-5"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Número de curtidas -->
+                            <!-- fw-bold deixa o texto em negrito -->
+                            <div class="fw-bold mb-2">1.234 curtidas</div>
+                            
+                            <!-- Legenda do post -->
+                            <div class="mb-2">
+                                <!-- Nome do usuário em negrito -->
+                                <span class="fw-bold">usuario_exemplo</span>
+                                <!-- Texto da legenda -->
+                                Esta é uma legenda de exemplo para o post! #bootstrap #html #aprendendo
+                            </div>
+                            
+                            <!-- Link para ver comentários -->
+                            <!-- text-muted deixa o texto cinza -->
+                            <div class="text-muted small mb-2">Ver todos os 25 comentários</div>
+                            
+                            <!-- Tempo de publicação -->
+                            <!-- text-muted deixa o texto cinza, small deixa menor -->
+                            <div class="text-muted small">2 horas atrás</div>
+                        </div>
+                    </div>
+                    
+                    <!-- POST 2 - Segundo exemplo de post -->
+                    <!-- Mesma estrutura do post anterior -->
+                    <div class="card mb-4">
+                        <!-- Cabeçalho do segundo post -->
+                        <div class="card-header bg-white">
+                            <div class="d-flex align-items-center">
+                                <!-- Foto do perfil -->
+                                <img src="https://via.placeholder.com/40" alt="Perfil" class="rounded-circle me-3">
+                                <div>
+                                    <!-- Nome do usuário -->
+                                    <div class="fw-bold">outro_usuario</div>
+                                    <!-- Localização -->
+                                    <div class="text-muted small">Rio de Janeiro, Brasil</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Imagem do segundo post -->
+                        <img src="https://via.placeholder.com/600x500" alt="Post 2" class="card-img-top">
+                        
+                        <!-- Corpo do segundo post -->
+                        <div class="card-body">
+                            <!-- Botões de ação -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <div>
+                                    <!-- Botão curtir -->
+                                    <button class="btn btn-link text-dark p-0 me-3">
+                                        <i class="bi bi-heart fs-5"></i>
+                                    </button>
+                                    <!-- Botão comentar -->
+                                    <button class="btn btn-link text-dark p-0 me-3">
+                                        <i class="bi bi-chat fs-5"></i>
+                                    </button>
+                                    <!-- Botão compartilhar -->
+                                    <button class="btn btn-link text-dark p-0">
+                                        <i class="bi bi-share fs-5"></i>
+                                    </button>
+                                </div>
+                                <!-- Botão salvar -->
+                                <button class="btn btn-link text-dark p-0">
+                                    <i class="bi bi-bookmark fs-5"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Número de curtidas -->
+                            <div class="fw-bold mb-2">856 curtidas</div>
+                            
+                            <!-- Legenda -->
+                            <div class="mb-2">
+                                <span class="fw-bold">outro_usuario</span>
+                                Aprendendo a criar páginas com Bootstrap! É muito fácil! 🚀
+                            </div>
+                            
+                            <!-- Link para comentários -->
+                            <div class="text-muted small mb-2">Ver todos os 12 comentários</div>
+                            
+                            <!-- Tempo de publicação -->
+                            <div class="text-muted small">5 horas atrás</div>
+                        </div>
+                    </div>
+                    
+                    <!-- POST 3 - Terceiro exemplo de post -->
+                    <div class="card mb-4">
+                        <!-- Cabeçalho do terceiro post -->
+                        <div class="card-header bg-white">
+                            <div class="d-flex align-items-center">
+                                <!-- Foto do perfil -->
+                                <img src="https://via.placeholder.com/40" alt="Perfil" class="rounded-circle me-3">
+                                <div>
+                                    <!-- Nome do usuário -->
+                                    <div class="fw-bold">programador_iniciante</div>
+                                    <!-- Localização -->
+                                    <div class="text-muted small">Belo Horizonte, Brasil</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Imagem do terceiro post -->
+                        <img src="https://via.placeholder.com/600x400" alt="Post 3" class="card-img-top">
+                        
+                        <!-- Corpo do terceiro post -->
+                        <div class="card-body">
+                            <!-- Botões de ação -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <div>
+                                    <!-- Botão curtir -->
+                                    <button class="btn btn-link text-dark p-0 me-3">
+                                        <i class="bi bi-heart fs-5"></i>
+                                    </button>
+                                    <!-- Botão comentar -->
+                                    <button class="btn btn-link text-dark p-0 me-3">
+                                        <i class="bi bi-chat fs-5"></i>
+                                    </button>
+                                    <!-- Botão compartilhar -->
+                                    <button class="btn btn-link text-dark p-0">
+                                        <i class="bi bi-share fs-5"></i>
+                                    </button>
+                                </div>
+                                <!-- Botão salvar -->
+                                <button class="btn btn-link text-dark p-0">
+                                    <i class="bi bi-bookmark fs-5"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Número de curtidas -->
+                            <div class="fw-bold mb-2">2.456 curtidas</div>
+                            
+                            <!-- Legenda -->
+                            <div class="mb-2">
+                                <span class="fw-bold">programador_iniciante</span>
+                                Meu primeiro projeto com HTML e Bootstrap! 💻 #coding #bootstrap #html
+                            </div>
+                            
+                            <!-- Link para comentários -->
+                            <div class="text-muted small mb-2">Ver todos os 89 comentários</div>
+                            
+                            <!-- Tempo de publicação -->
+                            <div class="text-muted small">1 dia atrás</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- POPUP/MODAL PARA CRIAR NOVO POST -->
+    <!-- Modal é o componente do Bootstrap para criar popups -->
+    <!-- fade adiciona animação de aparecer/desaparecer -->
+    <div class="modal fade" id="criarPostModal" tabindex="-1" aria-labelledby="criarPostModalLabel" aria-hidden="true">
+        
+        <!-- Contêiner do modal -->
+        <!-- modal-dialog-centered centraliza o modal na tela -->
+        <div class="modal-dialog modal-dialog-centered">
+            
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                
+                <!-- Cabeçalho do modal -->
+                <!-- modal-header é a classe para o topo do modal -->
+                <div class="modal-header">
+                    <!-- Título do modal -->
+                    <!-- modal-title é a classe para o título -->
+                    <h5 class="modal-title" id="criarPostModalLabel">
+                        <!-- Ícone de câmera -->
+                        <i class="bi bi-camera"></i>
+                        Criar Novo Post
+                    </h5>
+                    
+                    <!-- Botão X para fechar o modal -->
+                    <!-- btn-close é a classe do Bootstrap para botão de fechar -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                
+                <!-- Corpo do modal -->
+                <!-- modal-body é onde fica o conteúdo principal -->
+                <div class="modal-body">
+                    
+                    <!-- Formulário para criar o post -->
+                    <form>
+                        
+                        <!-- Campo para upload de imagem -->
+                        <!-- mb-3 adiciona margem na parte inferior -->
+                        <div class="mb-3">
+                            <!-- Label (texto) para o campo -->
+                            <!-- form-label é a classe do Bootstrap para labels -->
+                            <label for="imagemPost" class="form-label">
+                                <!-- Ícone de imagem -->
+                                <i class="bi bi-image"></i>
+                                Selecionar Imagem
+                            </label>
+                            
+                            <!-- Campo de upload de arquivo -->
+                            <!-- form-control é a classe padrão para inputs -->
+                            <input type="file" class="form-control" id="imagemPost" accept="image/*">
+                            
+                            <!-- Texto de ajuda abaixo do campo -->
+                            <!-- form-text text-muted são classes para texto de ajuda -->
+                            <div class="form-text text-muted">
+                                Escolha uma imagem para o seu post (JPG, PNG, GIF)
+                            </div>
+                        </div>
+                        
+                        <!-- Campo para a legenda do post -->
+                        <div class="mb-3">
+                            <!-- Label para o campo de texto -->
+                            <label for="legendaPost" class="form-label">
+                                <!-- Ícone de texto -->
+                                <i class="bi bi-chat-left-text"></i>
+                                Legenda do Post
+                            </label>
+                            
+                            <!-- Campo de texto grande (textarea) -->
+                            <!-- form-control é a classe padrão -->
+                            <textarea class="form-control" id="legendaPost" rows="4" placeholder="Escreva uma legenda para o seu post..."></textarea>
+                            
+                            <!-- Texto de ajuda -->
+                            <div class="form-text text-muted">
+                                Conte a história da sua foto! Use hashtags (#) para alcançar mais pessoas
+                            </div>
+                        </div>
+                        
+                        <!-- Campo para localização (opcional) -->
+                        <div class="mb-3">
+                            <!-- Label para localização -->
+                            <label for="localizacaoPost" class="form-label">
+                                <!-- Ícone de localização -->
+                                <i class="bi bi-geo-alt"></i>
+                                Localização (opcional)
+                            </label>
+                            
+                            <!-- Campo de texto simples -->
+                            <input type="text" class="form-control" id="localizacaoPost" placeholder="Ex: São Paulo, Brasil">
+                            
+                            <!-- Texto de ajuda -->
+                            <div class="form-text text-muted">
+                                Adicione onde a foto foi tirada
+                            </div>
+                        </div>
+                        
+                        <!-- Prévia da imagem selecionada -->
+                        <!-- d-none esconde o elemento inicialmente -->
+                        <div class="mb-3 d-none" id="previaImagem">
+                            <!-- Título da prévia -->
+                            <label class="form-label">
+                                <!-- Ícone de olho -->
+                                <i class="bi bi-eye"></i>
+                                Prévia da Imagem
+                            </label>
+                            
+                            <!-- Container da prévia -->
+                            <!-- text-center centraliza o conteúdo -->
+                            <div class="text-center">
+                                <!-- Imagem de prévia -->
+                                <!-- img-fluid torna responsiva, rounded adiciona bordas arredondadas -->
+                                <img id="imagemPrevia" src="" alt="Prévia" class="img-fluid rounded" style="max-height: 300px;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Rodapé do modal -->
+                <!-- modal-footer é a classe para a parte inferior -->
+                <div class="modal-footer">
+                    
+                    <!-- Botão para cancelar -->
+                    <!-- btn-secondary é um botão cinza -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <!-- Ícone de X -->
+                        <i class="bi bi-x-circle"></i>
+                        Cancelar
+                    </button>
+                    
+                    <!-- Botão para publicar o post -->
+                    <!-- btn-primary é um botão azul -->
+                    <button type="button" class="btn btn-primary">
+                        <!-- Ícone de check -->
+                        <i class="bi bi-check-circle"></i>
+                        Publicar Post
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SCRIPTS DO BOOTSTRAP -->
+    <!-- JavaScript do Bootstrap - necessário para funcionalidades interativas -->
+    <!-- Estes scripts fazem os modals, botões e outros componentes funcionarem -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script simples para mostrar prévia da imagem -->
+    <!-- Este é o único JavaScript necessário para mostrar a imagem quando selecionada -->
+    <script>
+        // Pega o elemento do campo de upload de imagem
+        // document.getElementById busca um elemento pelo ID
+        const inputImagem = document.getElementById('imagemPost');
+        
+        // Pega o elemento da imagem de prévia
+        const imagemPrevia = document.getElementById('imagemPrevia');
+        
+        // Pega o container da prévia
+        const containerPrevia = document.getElementById('previaImagem');
+        
+        // Adiciona um "ouvidor" de evento para quando o arquivo mudar
+        // addEventListener escuta quando algo acontece (neste caso, mudança no input)
+        inputImagem.addEventListener('change', function(evento) {
+            
+            // Pega o arquivo selecionado
+            // this.files[0] é o primeiro arquivo selecionado
+            const arquivo = this.files[0];
+            
+            // Verifica se um arquivo foi selecionado
+            if (arquivo) {
+                
+                // Cria um FileReader para ler o arquivo
+                // FileReader é uma ferramenta do JavaScript para ler arquivos
+                const leitor = new FileReader();
+                
+                // Define o que fazer quando o arquivo for lido
+                leitor.onload = function(eventoLeitura) {
+                    
+                    // Define a fonte da imagem com o conteúdo do arquivo
+                    // eventoLeitura.target.result é o conteúdo do arquivo lido
+                    imagemPrevia.src = eventoLeitura.target.result;
+                    
+                    // Remove a classe d-none para mostrar a prévia
+                    // classList.remove remove uma classe CSS
+                    containerPrevia.classList.remove('d-none');
+                };
+                
+                // Lê o arquivo como URL de dados
+                // readAsDataURL converte o arquivo em uma URL que pode ser usada em img
+                leitor.readAsDataURL(arquivo);
+            } else {
+                
+                // Se nenhum arquivo foi selecionado, esconde a prévia
+                // classList.add adiciona uma classe CSS
+                containerPrevia.classList.add('d-none');
+            }
+        });
+    </script>
+</body>
+</html>

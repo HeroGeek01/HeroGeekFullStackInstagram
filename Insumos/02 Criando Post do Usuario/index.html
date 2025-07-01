@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Meta tags obrigatórias para o Bootstrap funcionar corretamente -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Instagram Clone - Página de Pesquisa</title>
+    
+    <!-- Link para carregar o CSS do Bootstrap 5 da internet -->
+    <!-- Isso traz todos os estilos prontos que vamos usar -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link para carregar os ícones do Bootstrap Icons -->
+    <!-- Isso nos dá acesso aos ícones como casa, lupa, etc -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Container principal que ocupa toda a tela -->
+    <!-- d-flex = display flex (para organizar elementos lado a lado) -->
+    <!-- vh-100 = height 100% da viewport (altura total da tela) -->
+    <div class="d-flex vh-100">
+        
+        <!-- MENU LATERAL PRINCIPAL (lado esquerdo) -->
+        <!-- bg-white = fundo branco -->
+        <!-- border-end = borda à direita -->
+        <!-- p-3 = padding (espaçamento interno) de 3 unidades -->
+        <!-- flex-shrink-0 = não permite que este elemento diminua -->
+        <div class="bg-white border-end p-3 flex-shrink-0" style="width: 80px;">
+            
+            <!-- Logo do Instagram no topo -->
+            <!-- text-center = centraliza o texto -->
+            <!-- mb-4 = margin-bottom (espaço embaixo) de 4 unidades -->
+            <div class="text-center mb-4">
+                <!-- Ícone do Instagram usando Bootstrap Icons -->
+                <!-- fs-2 = font-size 2 (tamanho grande) -->
+                <!-- text-dark = cor do texto escura -->
+                <i class="bi bi-instagram fs-2 text-dark"></i>
+            </div>
+            
+            <!-- Lista de ícones do menu -->
+            <!-- nav = elemento de navegação -->
+            <!-- flex-column = organiza os itens em coluna (um embaixo do outro) -->
+            <nav class="nav flex-column">
+                
+                <!-- Botão Home (Início) -->
+                <!-- nav-link = estilo padrão para links de navegação -->
+                <!-- text-dark = texto escuro -->
+                <!-- p-2 = padding de 2 unidades -->
+                <!-- mb-2 = margin-bottom de 2 unidades -->
+                <!-- text-center = centraliza o conteúdo -->
+                <a href="#" class="nav-link text-dark p-2 mb-2 text-center">
+                    <!-- Ícone de casa -->
+                    <!-- fs-4 = font-size 4 (tamanho médio-grande) -->
+                    <i class="bi bi-house fs-4"></i>
+                </a>
+                
+                <!-- Botão Search (Pesquisa) -->
+                <!-- Este botão está "ativo" porque estamos na página de pesquisa -->
+                <!-- bg-light = fundo claro para mostrar que está selecionado -->
+                <!-- rounded = bordas arredondadas -->
+                <a href="#" class="nav-link text-dark p-2 mb-2 text-center bg-light rounded">
+                    <!-- Ícone de lupa (pesquisa) -->
+                    <i class="bi bi-search fs-4"></i>
+                </a>
+                
+                <!-- Botão Explore (Explorar) -->
+                <a href="#" class="nav-link text-dark p-2 mb-2 text-center">
+                    <!-- Ícone de coração (curtidas/explorar) -->
+                    <i class="bi bi-heart fs-4"></i>
+                </a>
+                
+                <!-- Botão Messages (Mensagens) -->
+                <a href="#" class="nav-link text-dark p-2 mb-2 text-center">
+                    <!-- Ícone de chat (mensagens) -->
+                    <i class="bi bi-chat fs-4"></i>
+                </a>
+                
+            </nav>
+        </div>
+        
+        <!-- PAINEL DE PESQUISA (meio-esquerdo) -->
+        <!-- Este painel aparece quando clicamos no ícone de pesquisa -->
+        <!-- bg-white = fundo branco -->
+        <!-- border-end = borda à direita -->
+        <!-- p-3 = padding de 3 unidades -->
+        <!-- flex-shrink-0 = não permite que diminua de tamanho -->
+        <div class="bg-white border-end p-3 flex-shrink-0" style="width: 350px;">
+            
+            <!-- Título do painel de pesquisa -->
+            <!-- h4 = heading 4 (título de tamanho médio) -->
+            <!-- fw-bold = font-weight bold (texto em negrito) -->
+            <!-- mb-3 = margin-bottom de 3 unidades -->
+            <h4 class="fw-bold mb-3">Pesquisa</h4>
+            
+            <!-- Campo de entrada para digitar a pesquisa -->
+            <!-- mb-3 = margin-bottom de 3 unidades -->
+            <div class="mb-3">
+                <!-- input-group = agrupa o campo de entrada com outros elementos -->
+                <div class="input-group">
+                    <!-- form-control = estilo padrão para campos de entrada -->
+                    <!-- bg-light = fundo claro -->
+                    <!-- border-0 = sem borda -->
+                    <!-- value="paula" = texto que já aparece no campo (como na imagem) -->
+                    <input type="text" class="form-control bg-light border-0" placeholder="Pesquisar" value="paula">
+                </div>
+            </div>
+            
+            <!-- Lista de resultados da pesquisa -->
+            <!-- Cada resultado é um usuário que corresponde à pesquisa "paula" -->
+            <div>
+                
+                <!-- Primeiro resultado: paula.daniela1992 -->
+                <!-- d-flex = display flex (organiza elementos lado a lado) -->
+                <!-- align-items-center = alinha verticalmente ao centro -->
+                <!-- p-2 = padding de 2 unidades -->
+                <!-- mb-2 = margin-bottom de 2 unidades -->
+                <!-- rounded = bordas arredondadas -->
+                <!-- Este div funciona como um botão clicável -->
+                <div class="d-flex align-items-center p-2 mb-2 rounded" style="cursor: pointer;">
+                    
+                    <!-- Avatar (foto do perfil) -->
+                    <!-- me-3 = margin-end (margem à direita) de 3 unidades -->
+                    <!-- flex-shrink-0 = não permite que a imagem diminua -->
+                    <div class="me-3 flex-shrink-0">
+                        <!-- rounded-circle = faz a imagem ficar redonda -->
+                        <!-- Usando uma imagem placeholder do site picsum.photos -->
+                        <img src="https://picsum.photos/seed/paula1/40/40" alt="Avatar de paula.daniela1992" class="rounded-circle" width="40" height="40">
+                    </div>
+                    
+                    <!-- Informações do usuário (nome e username) -->
+                    <div>
+                        <!-- Nome de usuário em negrito -->
+                        <!-- fw-bold = font-weight bold -->
+                        <!-- mb-0 = margin-bottom 0 (sem espaço embaixo) -->
+                        <div class="fw-bold mb-0">paula.daniela1992</div>
+                        <!-- Nome real em cor mais clara -->
+                        <!-- text-muted = cor do texto mais clara/cinza -->
+                        <!-- small = texto menor -->
+                        <div class="text-muted small">Paula Daniela • Seguindo(a) por jaopaulo1440...</div>
+                    </div>
+                </div>
+                
+                <!-- Segundo resultado: paulaarquitetta -->
+                <!-- Mesma estrutura do resultado anterior -->
+                <div class="d-flex align-items-center p-2 mb-2 rounded" style="cursor: pointer;">
+                    <div class="me-3 flex-shrink-0">
+                        <!-- Usando seed diferente para gerar avatar diferente -->
+                        <img src="https://picsum.photos/seed/paula2/40/40" alt="Avatar de paulaarquitetta" class="rounded-circle" width="40" height="40">
+                    </div>
+                    <div>
+                        <div class="fw-bold mb-0">paulaarquitetta</div>
+                        <div class="text-muted small">Paula Gonçalves | Arquiteta • Seguindo(a) por j...</div>
+                    </div>
+                </div>
+                
+                <!-- Terceiro resultado: _mariapaulaaps -->
+                <div class="d-flex align-items-center p-2 mb-2 rounded" style="cursor: pointer;">
+                    <div class="me-3 flex-shrink-0">
+                        <img src="https://picsum.photos/seed/paula3/40/40" alt="Avatar de _mariapaulaaps" class="rounded-circle" width="40" height="40">
+                    </div>
+                    <div>
+                        <div class="fw-bold mb-0">_mariapaulaaps</div>
+                        <div class="text-muted small">Maria Paula • Seguindo(a) por jgcamposj e m...</div>
+                    </div>
+                </div>
+                
+                <!-- Quarto resultado: mariasouto14_ -->
+                <div class="d-flex align-items-center p-2 mb-2 rounded" style="cursor: pointer;">
+                    <div class="me-3 flex-shrink-0">
+                        <img src="https://picsum.photos/seed/paula4/40/40" alt="Avatar de mariasouto14_" class="rounded-circle" width="40" height="40">
+                    </div>
+                    <div>
+                        <div class="fw-bold mb-0">mariasouto14_</div>
+                        <div class="text-muted small">Maria Paula Souto</div>
+                    </div>
+                </div>
+                
+                <!-- Quinto resultado: paulasilva3884 -->
+                <div class="d-flex align-items-center p-2 mb-2 rounded" style="cursor: pointer;">
+                    <div class="me-3 flex-shrink-0">
+                        <img src="https://picsum.photos/seed/paula5/40/40" alt="Avatar de paulasilva3884" class="rounded-circle" width="40" height="40">
+                    </div>
+                    <div>
+                        <div class="fw-bold mb-0">paulasilva3884</div>
+                        <div class="text-muted small">Paulinha Lima • Seguindo(a) por jaopaulo1440...</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- ÁREA PRINCIPAL DE CONTEÚDO (lado direito) -->
+        <!-- Esta área normalmente mostraria o perfil selecionado ou o feed -->
+        <!-- Na imagem está vazia porque o usuário está apenas pesquisando -->
+        <!-- flex-grow-1 = ocupa todo o espaço restante -->
+        <!-- bg-white = fundo branco -->
+        <!-- d-flex = display flex -->
+        <!-- align-items-center = alinha verticalmente ao centro -->
+        <!-- justify-content-center = alinha horizontalmente ao centro -->
+        <div class="flex-grow-1 bg-white d-flex align-items-center justify-content-center">
+            
+            <!-- Mensagem explicativa (esta parte não aparece na imagem original) -->
+            <!-- text-center = centraliza o texto -->
+            <!-- text-muted = cor do texto mais clara -->
+            <div class="text-center text-muted">
+                <!-- Ícone grande de pesquisa -->
+                <!-- display-1 = tamanho muito grande -->
+                <!-- mb-3 = margin-bottom de 3 unidades -->
+                <i class="bi bi-search display-1 mb-3"></i>
+                <!-- Texto explicativo -->
+                <!-- h5 = heading 5 (título pequeno) -->
+                <h5>Selecione um resultado da pesquisa</h5>
+                <!-- Texto menor com mais detalhes -->
+                <p>Clique em um dos usuários encontrados para ver o perfil</p>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <!-- Script do Bootstrap (JavaScript) -->
+    <!-- Este script adiciona funcionalidades interativas aos componentes do Bootstrap -->
+    <!-- Colocamos no final do body para a página carregar mais rápido -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 
+    EXPLICAÇÃO GERAL DA ESTRUTURA:
+    
+    1. CONTAINER PRINCIPAL (d-flex vh-100):
+       - Usa flexbox para organizar os elementos lado a lado
+       - Ocupa 100% da altura da tela
+    
+    2. MENU LATERAL (80px de largura):
+       - Contém os ícones principais (home, pesquisa, etc.)
+       - Fica fixo no lado esquerdo
+       - O ícone de pesquisa está destacado (fundo claro)
+    
+    3. PAINEL DE PESQUISA (350px de largura):
+       - Mostra o campo de busca e os resultados
+       - Lista os usuários encontrados com avatar e informações
+       - Cada resultado é clicável (cursor: pointer)
+    
+    4. ÁREA PRINCIPAL (ocupa o resto da tela):
+       - Normalmente mostraria o feed ou perfil selecionado
+       - Está vazia como na imagem original
+       - Contém apenas uma mensagem explicativa
+    
+    CLASSES BOOTSTRAP MAIS USADAS:
+    
+    - d-flex: transforma o elemento em flex container
+    - flex-column: organiza filhos em coluna (vertical)
+    - align-items-center: alinha verticalmente ao centro
+    - justify-content-center: alinha horizontalmente ao centro
+    - mb-X: margin-bottom (espaço embaixo)
+    - me-X: margin-end (espaço à direita)
+    - p-X: padding (espaçamento interno)
+    - bg-white: fundo branco
+    - bg-light: fundo claro
+    - text-center: centraliza texto
+    - text-muted: texto em cor clara
+    - fw-bold: texto em negrito
+    - rounded: bordas arredondadas
+    - border-end: borda à direita
+    
+    O número X nas classes (como mb-3, p-2) representa o tamanho:
+    - 0 = sem espaço
+    - 1 = pequeno
+    - 2 = médio-pequeno  
+    - 3 = médio
+    - 4 = médio-grande
+    - 5 = grande
+    -->
+
+</body>
+</html>

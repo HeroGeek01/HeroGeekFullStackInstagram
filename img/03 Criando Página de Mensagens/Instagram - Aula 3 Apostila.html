@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Instagram - Aula 3 Apostila.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta tags obrigatórias para o Bootstrap -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone - Mensagens</title>
+<pre><code>&lt;!-- Link para o CSS do Bootstrap (framework de CSS) --&gt;
+&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;!-- Link para os ícones do Bootstrap --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css&quot;&gt;
+
+&lt;style&gt;
+    /* Cores customizadas para parecer com o Instagram real */
+    :root {
+        --instagram-bg: #fafafa;
+        --instagram-white: #ffffff;
+        --instagram-border: #dbdbdb;
+        --instagram-text: #262626;
+        --instagram-text-light: #8e8e8e;
+        --instagram-blue: #0095f6;
+        --instagram-message-bg: #efefef;
+        --instagram-user-message: #0095f6;
+    }
+    
+    body {
+        background-color: var(--instagram-bg) !important;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+    
+    .instagram-border {
+        border-color: var(--instagram-border) !important;
+    }
+    
+    .instagram-text {
+        color: var(--instagram-text) !important;
+    }
+    
+    .instagram-text-light {
+        color: var(--instagram-text-light) !important;
+    }
+    
+    .instagram-blue {
+        color: var(--instagram-blue) !important;
+    }
+    
+    .message-received {
+        background-color: var(--instagram-message-bg) !important;
+        border: 1px solid var(--instagram-border) !important;
+    }
+    
+    .message-sent {
+        background-color: var(--instagram-user-message) !important;
+        color: white !important;
+    }
+    
+    .chat-input {
+        border: 1px solid var(--instagram-border) !important;
+        background-color: var(--instagram-white) !important;
+    }
+    
+    .sidebar-nav {
+        background-color: var(--instagram-white) !important;
+        border-right: 1px solid var(--instagram-border) !important;
+    }
+    
+    .conversation-item:hover {
+        background-color: #f5f5f5 !important;
+    }
+    
+    .conversation-selected {
+        background-color: #f0f0f0 !important;
+    }
+&lt;/style&gt;
+</code></pre>
+</head>
+<body>
+    <!-- Container principal que ocupa toda a altura da tela -->
+    <div class="container-fluid vh-100">
+        <!-- Row (linha) principal que divide a tela em colunas -->
+        <div class="row h-100">
+<pre><code>        &lt;!-- COLUNA 1: BARRA DE NAVEGAÇÃO LATERAL ESQUERDA --&gt;
+        &lt;div class=&quot;col-1 sidebar-nav&quot;&gt;
+            &lt;div class=&quot;d-flex flex-column align-items-center py-4&quot;&gt;
+                &lt;!-- Logo do Instagram --&gt;
+                &lt;i class=&quot;bi bi-instagram fs-2 instagram-text mb-4&quot;&gt;&lt;/i&gt;
+                &lt;!-- Ícone de casa (home/início) --&gt;
+                &lt;i class=&quot;bi bi-house fs-4 instagram-text mb-4&quot;&gt;&lt;/i&gt;
+                &lt;!-- Ícone de mensagem (avião de papel) - ATIVO --&gt;
+                &lt;i class=&quot;bi bi-send fs-4 instagram-blue&quot;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- COLUNA 2: LISTA DE CONVERSAS --&gt;
+        &lt;div class=&quot;col-4 sidebar-nav&quot;&gt;
+            &lt;!-- Cabeçalho da seção de mensagens --&gt;
+            &lt;div class=&quot;p-3&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                &lt;div class=&quot;d-flex justify-content-between align-items-center mb-3&quot;&gt;
+                    &lt;h5 class=&quot;mb-0 instagram-text fw-bold&quot;&gt;mariana.santos92&lt;/h5&gt;
+                    &lt;i class=&quot;bi bi-chevron-down instagram-text&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;!-- Campo de pesquisa --&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control chat-input rounded-pill py-2&quot; placeholder=&quot;Pesquisar&quot; style=&quot;background-color: #f5f5f5;&quot;&gt;
+            &lt;/div&gt;
+            
+            
+            
+            &lt;!-- Lista de conversas --&gt;
+            &lt;div class=&quot;overflow-auto&quot; style=&quot;height: calc(100vh - 280px);&quot;&gt;
+                
+                &lt;!-- Conversa 1: Ana Clara --&gt;
+                &lt;div class=&quot;p-3 conversation-item&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;div class=&quot;bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 50px; height: 50px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;fw-bold instagram-text&quot;&gt;Ana Clara&lt;/div&gt;
+                            &lt;small class=&quot;instagram-text-light&quot;&gt;Online há 2 min&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Conversa 2: Pedro Henrique --&gt;
+                &lt;div class=&quot;p-3 conversation-item&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;div class=&quot;bg-success rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 50px; height: 50px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;fw-bold instagram-text&quot;&gt;Pedro Henrique&lt;/div&gt;
+                            &lt;small class=&quot;instagram-text-light&quot;&gt;Online há 15 min&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Conversa 3: Gabriela Lima --&gt;
+                &lt;div class=&quot;p-3 conversation-item&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;div class=&quot;bg-warning rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 50px; height: 50px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;fw-bold instagram-text&quot;&gt;Gabriela Lima&lt;/div&gt;
+                            &lt;small class=&quot;instagram-text-light&quot;&gt;• 2 h&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Conversa 4: João Victor --&gt;
+                &lt;div class=&quot;p-3 conversation-item&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;div class=&quot;bg-info rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 50px; height: 50px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;fw-bold instagram-text&quot;&gt;João Victor&lt;/div&gt;
+                            &lt;small class=&quot;instagram-text-light&quot;&gt;Online há 1 h&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Conversa 5: Larissa Oliveira (SELECIONADA) --&gt;
+                &lt;div class=&quot;p-3 conversation-selected&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;div class=&quot;bg-danger rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 50px; height: 50px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;fw-bold instagram-text&quot;&gt;Larissa Oliveira&lt;/div&gt;
+                            &lt;small class=&quot;instagram-text-light&quot;&gt;Online agora&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Conversa 6: Rafael Costa --&gt;
+                &lt;div class=&quot;p-3 conversation-item&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;div class=&quot;bg-secondary rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 50px; height: 50px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;fw-bold instagram-text&quot;&gt;Rafael Costa&lt;/div&gt;
+                            &lt;small class=&quot;instagram-text-light&quot;&gt;• 1 dia&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Conversa 7: Camila Ferreira --&gt;
+                &lt;div class=&quot;p-3 conversation-item&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;div class=&quot;bg-dark rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 50px; height: 50px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div class=&quot;fw-bold instagram-text&quot;&gt;Camila Ferreira&lt;/div&gt;
+                            &lt;small class=&quot;instagram-text-light&quot;&gt;• 3 dias&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- COLUNA 3: ÁREA DE CHAT PRINCIPAL --&gt;
+        &lt;div class=&quot;col-7&quot; style=&quot;background-color: var(--instagram-white);&quot;&gt;
+            
+            &lt;!-- Cabeçalho do chat --&gt;
+            &lt;div class=&quot;p-3&quot; style=&quot;border-bottom: 1px solid var(--instagram-border);&quot;&gt;
+                &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                    &lt;!-- Avatar do contato ativo --&gt;
+                    &lt;div class=&quot;bg-danger rounded-circle me-3 d-flex align-items-center justify-content-center&quot; style=&quot;width: 40px; height: 40px;&quot;&gt;
+                        &lt;i class=&quot;bi bi-person-fill text-white&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;fw-bold instagram-text&quot;&gt;Larissa Oliveira&lt;/div&gt;
+                        &lt;small class=&quot;instagram-text-light&quot;&gt;Online agora&lt;/small&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;!-- Área das mensagens --&gt;
+            &lt;div class=&quot;flex-grow-1 overflow-auto p-3&quot; style=&quot;height: calc(100vh - 160px);&quot;&gt;
+                
+                &lt;!-- Data da conversa --&gt;
+                &lt;div class=&quot;text-center mb-4&quot;&gt;
+                    &lt;small class=&quot;instagram-text-light&quot;&gt;Hoje 14:30&lt;/small&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Mensagem recebida --&gt;
+                &lt;div class=&quot;d-flex mb-3&quot;&gt;
+                    &lt;div class=&quot;me-2&quot;&gt;
+                        &lt;div class=&quot;bg-danger rounded-circle d-flex align-items-center justify-content-center&quot; style=&quot;width: 30px; height: 30px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white fs-6&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-received rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span class=&quot;instagram-text&quot;&gt;Oi! Tudo bem? Conseguiu fazer aquele trabalho de história?&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- MENSAGEM ENVIADA (pelo usuário) - À DIREITA --&gt;
+                &lt;div class=&quot;d-flex justify-content-end mb-3&quot;&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-sent rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span&gt;Oi Lari! Tudo sim! Consegui terminar ontem à noite 😅&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Mensagem recebida --&gt;
+                &lt;div class=&quot;d-flex mb-3&quot;&gt;
+                    &lt;div class=&quot;me-2&quot;&gt;
+                        &lt;div class=&quot;bg-danger rounded-circle d-flex align-items-center justify-content-center&quot; style=&quot;width: 30px; height: 30px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white fs-6&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-received rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span class=&quot;instagram-text&quot;&gt;Que alívio! Eu ainda tô fazendo aqui kkkk&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- MENSAGEM ENVIADA --&gt;
+                &lt;div class=&quot;d-flex justify-content-end mb-3&quot;&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-sent rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span&gt;Quer ajuda? Posso mandar minhas anotações!&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Mensagem recebida com emojis --&gt;
+                &lt;div class=&quot;d-flex mb-3&quot;&gt;
+                    &lt;div class=&quot;me-2&quot;&gt;
+                        &lt;div class=&quot;bg-danger rounded-circle d-flex align-items-center justify-content-center&quot; style=&quot;width: 30px; height: 30px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white fs-6&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-received rounded p-2 mb-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span class=&quot;instagram-text&quot;&gt;Sério?! Você é um anjo! 😍❤️&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Reações de emoji --&gt;
+                        &lt;div class=&quot;d-flex&quot;&gt;
+                            &lt;div class=&quot;bg-warning rounded-circle text-center me-1&quot; style=&quot;width: 20px; height: 20px; line-height: 20px; font-size: 12px;&quot;&gt;❤️&lt;/div&gt;
+                            &lt;div class=&quot;bg-warning rounded-circle text-center me-1&quot; style=&quot;width: 20px; height: 20px; line-height: 20px; font-size: 12px;&quot;&gt;❤️&lt;/div&gt;
+                            &lt;div class=&quot;bg-warning rounded-circle text-center&quot; style=&quot;width: 20px; height: 20px; line-height: 20px; font-size: 12px;&quot;&gt;❤️&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- MENSAGEM ENVIADA --&gt;
+                &lt;div class=&quot;d-flex justify-content-end mb-3&quot;&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-sent rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span&gt;Claro! Vou mandar agora no WhatsApp 📚&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Espaço entre mensagens --&gt;
+                &lt;div class=&quot;text-center mb-4&quot;&gt;
+                    &lt;small class=&quot;instagram-text-light&quot;&gt;15:45&lt;/small&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Mensagem recebida --&gt;
+                &lt;div class=&quot;d-flex mb-3&quot;&gt;
+                    &lt;div class=&quot;me-2&quot;&gt;
+                        &lt;div class=&quot;bg-danger rounded-circle d-flex align-items-center justify-content-center&quot; style=&quot;width: 30px; height: 30px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white fs-6&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-received rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span class=&quot;instagram-text&quot;&gt;Obrigada mesmo! Vou conseguir entregar no prazo agora 🙏&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- MENSAGEM ENVIADA --&gt;
+                &lt;div class=&quot;d-flex justify-content-end mb-3&quot;&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-sent rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span&gt;Imagina! Sempre que precisar é só falar! 😊&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Mensagem recebida --&gt;
+                &lt;div class=&quot;d-flex mb-3&quot;&gt;
+                    &lt;div class=&quot;me-2&quot;&gt;
+                        &lt;div class=&quot;bg-danger rounded-circle d-flex align-items-center justify-content-center&quot; style=&quot;width: 30px; height: 30px;&quot;&gt;
+                            &lt;i class=&quot;bi bi-person-fill text-white fs-6&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-received rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span class=&quot;instagram-text&quot;&gt;Você é demais! Vamos sair no fim de semana para comemorar? 🎉&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- MENSAGEM ENVIADA FINAL --&gt;
+                &lt;div class=&quot;d-flex justify-content-end mb-3&quot;&gt;
+                    &lt;div&gt;
+                        &lt;div class=&quot;message-sent rounded p-2&quot; style=&quot;max-width: 300px;&quot;&gt;
+                            &lt;span&gt;Bora sim! Vamos no shopping ou no cinema? 🍿&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+            &lt;/div&gt;
+            
+            &lt;!-- Barra de input para nova mensagem --&gt;
+            &lt;div class=&quot;position-fixed bottom-0 p-3&quot; style=&quot;right: 0; left: 41.66%; background-color: var(--instagram-white); border-top: 1px solid var(--instagram-border);&quot;&gt;
+                &lt;div class=&quot;d-flex align-items-center w-100&quot;&gt;
+                    &lt;!-- Ícone de emoji/smile --&gt;
+                    &lt;i class=&quot;bi bi-emoji-smile me-3 fs-5 instagram-text-light&quot;&gt;&lt;/i&gt;
+                    &lt;!-- Campo de input da mensagem --&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control chat-input rounded-pill flex-grow-1 py-2&quot; placeholder=&quot;Mensagem...&quot; style=&quot;border: 1px solid var(--instagram-border);&quot;&gt;
+                    &lt;!-- Ícone de envio --&gt;
+                    &lt;i class=&quot;bi bi-send ms-3 fs-5 instagram-blue&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Script do Bootstrap (JavaScript) --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</body>
+</html>
+</body>
+</html>
