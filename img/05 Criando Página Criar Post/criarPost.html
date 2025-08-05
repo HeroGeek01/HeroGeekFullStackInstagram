@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>criarPost.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<pre class="hljs"><code><div>
+
+<span class="hljs-comment">&lt;!-- POPUP/MODAL PARA CRIAR NOVO POST --&gt;</span>
+<span class="hljs-comment">&lt;!-- Modal é o componente do Bootstrap para criar popups --&gt;</span>
+<span class="hljs-comment">&lt;!-- fade adiciona animação de aparecer/desaparecer --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"criarPostModal"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"criarPostModalLabel"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Contêiner do modal --&gt;</span>
+    <span class="hljs-comment">&lt;!-- modal-dialog-centered centraliza o modal na tela --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog modal-dialog-centered"</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- Conteúdo do modal --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-content"</span>&gt;</span>
+
+            <span class="hljs-comment">&lt;!-- Cabeçalho do modal --&gt;</span>
+            <span class="hljs-comment">&lt;!-- modal-header é a classe para o topo do modal --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
+                <span class="hljs-comment">&lt;!-- Título do modal --&gt;</span>
+                <span class="hljs-comment">&lt;!-- modal-title é a classe para o título --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"criarPostModalLabel"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- Ícone de câmera --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                    Criar Novo Post
+                <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+                <span class="hljs-comment">&lt;!-- Botão X para fechar o modal --&gt;</span>
+                <span class="hljs-comment">&lt;!-- btn-close é a classe do Bootstrap para botão de fechar --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-close"</span> <span class="hljs-attr">data-bs-dismiss</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Fechar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-comment">&lt;!-- Corpo do modal --&gt;</span>
+            <span class="hljs-comment">&lt;!-- modal-body é onde fica o conteúdo principal --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span>
+
+                <span class="hljs-comment">&lt;!-- Formulário para criar o post --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+
+                    <span class="hljs-comment">&lt;!-- Campo para upload de imagem --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- mb-3 adiciona margem na parte inferior --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-3"</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Label (texto) para o campo --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- form-label é a classe do Bootstrap para labels --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"imagemPost"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-label"</span>&gt;</span>
+                            <span class="hljs-comment">&lt;!-- Ícone de imagem --&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-image"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                            Selecionar Imagem
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+                        <span class="hljs-comment">&lt;!-- Campo de upload de arquivo --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- form-control é a classe padrão para inputs --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"imagemPost"</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">"image/*"</span>&gt;</span>
+
+                        <span class="hljs-comment">&lt;!-- Texto de ajuda abaixo do campo --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- form-text text-muted são classes para texto de ajuda --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>
+                            Escolha uma imagem para o seu post (JPG, PNG, GIF)
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                    <span class="hljs-comment">&lt;!-- Campo para a legenda do post --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-3"</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Label para o campo de texto --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"legendaPost"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-label"</span>&gt;</span>
+                            <span class="hljs-comment">&lt;!-- Ícone de texto --&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-chat-left-text"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                            Legenda do Post
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+                        <span class="hljs-comment">&lt;!-- Campo de texto grande (textarea) --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- form-control é a classe padrão --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"legendaPost"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"4"</span>
+                            <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Escreva uma legenda para o seu post..."</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+
+                        <span class="hljs-comment">&lt;!-- Texto de ajuda --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>
+                            Conte a história da sua foto! Use hashtags (#) para alcançar mais pessoas
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                    <span class="hljs-comment">&lt;!-- Campo para localização (opcional) --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-3"</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Label para localização --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"localizacaoPost"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-label"</span>&gt;</span>
+                            <span class="hljs-comment">&lt;!-- Ícone de localização --&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-geo-alt"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                            Localização (opcional)
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+                        <span class="hljs-comment">&lt;!-- Campo de texto simples --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"localizacaoPost"</span>
+                            <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Ex: São Paulo, Brasil"</span>&gt;</span>
+
+                        <span class="hljs-comment">&lt;!-- Texto de ajuda --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-text text-muted"</span>&gt;</span>
+                            Adicione onde a foto foi tirada
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                    <span class="hljs-comment">&lt;!-- Prévia da imagem selecionada --&gt;</span>
+                    <span class="hljs-comment">&lt;!-- d-none esconde o elemento inicialmente --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mb-3 d-none"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"previaImagem"</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!-- Título da prévia --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-label"</span>&gt;</span>
+                            <span class="hljs-comment">&lt;!-- Ícone de olho --&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-eye"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                            Prévia da Imagem
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+                        <span class="hljs-comment">&lt;!-- Container da prévia --&gt;</span>
+                        <span class="hljs-comment">&lt;!-- text-center centraliza o conteúdo --&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-center"</span>&gt;</span>
+                            <span class="hljs-comment">&lt;!-- Imagem de prévia --&gt;</span>
+                            <span class="hljs-comment">&lt;!-- img-fluid torna responsiva, rounded adiciona bordas arredondadas --&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"imagemPrevia"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">""</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Prévia"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-fluid rounded"</span>
+                                <span class="hljs-attr">style</span>=<span class="hljs-string">"max-height: 300px;"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-comment">&lt;!-- Rodapé do modal --&gt;</span>
+            <span class="hljs-comment">&lt;!-- modal-footer é a classe para a parte inferior --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-footer"</span>&gt;</span>
+
+                <span class="hljs-comment">&lt;!-- Botão para cancelar --&gt;</span>
+                <span class="hljs-comment">&lt;!-- btn-secondary é um botão cinza --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span> <span class="hljs-attr">data-bs-dismiss</span>=<span class="hljs-string">"modal"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- Ícone de X --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-x-circle"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                    Cancelar
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+                <span class="hljs-comment">&lt;!-- Botão para publicar o post --&gt;</span>
+                <span class="hljs-comment">&lt;!-- btn-primary é um botão azul --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!-- Ícone de check --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bi bi-check-circle"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+                    Publicar Post
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</div></code></pre>
+
+</body>
+</html>
